@@ -34,22 +34,6 @@
     input, button, textarea, select {
     font: inherit;
     }
-
-    button {
-        border: 0;
-        border-radius: 0;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 40px;
-        text-align: center;
-
-    }
-    button:hover {
-        color: #fff;
-        transition-duration: 0.7s;
-    }
 /* -----reset styles----- */
 
 /* inter-regular - latin */
@@ -140,6 +124,22 @@ h2 {
     line-height: 80px;
 }
 
+button {
+    border: 0;
+    border-radius: 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+button:hover {
+    color: #fff;
+    transition-duration: 0.7s;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -158,6 +158,7 @@ header {
     margin: 20px;
     background-position: center center; 
     transition-duration: 0.7s;  
+    cursor: pointer;
 }
 .logo:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -201,8 +202,8 @@ header {
 
 .language {
     height: 50px;
-    width: 70px;
-    margin: 20px;
+    width: 80px;
+    margin: 20px 15px;
     display: flex;
     font-family: Inter;
     font-style: normal;
@@ -211,6 +212,12 @@ header {
     line-height: 50px;
     color: #ffffff;
     justify-content: space-between;
+    background-color: inherit;
+    transition-duration: 0.7s;
+}
+.language:hover {
+    background-color: #BDAE82;
+    transition-duration: 0.7s;
 }
 
 .language-button-en,
@@ -312,7 +319,7 @@ header {
     margin: auto 20px;
 }
 
-.skils-container {
+.skills-container {
     height: 242px;
     padding: 0 20px;
     display: flex;
@@ -664,7 +671,6 @@ ul.footer-social li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .social-instagram {
