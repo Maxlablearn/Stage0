@@ -34,6 +34,22 @@
     input, button, textarea, select {
     font: inherit;
     }
+
+    button {
+        border: 0;
+        border-radius: 0;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+
+    }
+    button:hover {
+        color: #fff;
+        transition-duration: 0.7s;
+    }
 /* -----reset styles----- */
 
 /* inter-regular - latin */
@@ -75,9 +91,11 @@ src: local(''),
          url('./assets/fonts/merriweather-sans-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
          url('./assets/fonts/merriweather-sans-v14-latin-700.svg#MerriweatherSans') format('svg'); /* Legacy iOS */
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 }
@@ -86,19 +104,10 @@ body {
     min-height: 100vh;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-/* testing boxes */
-            .experiment-box {
-                background-color: burlywood;
-                border: 5px solid cornflowerblue;
-                height: 50px;
-                width: 200px;
-                
-            }
 
 h1 {
     font-family: Merriweather;
@@ -145,19 +154,16 @@ header {
 .navigation {
     margin-left: auto;
     min-width: 500px;
-
 }
 
 .nav-item {
     display: block;
-    
 }
 
 .nav-list {
     display: flex;
     flex-direction: row;
     list-style: none;
-
     justify-content: space-around;
     align-items: center;
     height: 90px;
@@ -191,7 +197,6 @@ header {
     line-height: 50px;
     color: #ffffff;
     justify-content: space-between;
-           
 }
 
 .language-button-en,
@@ -294,6 +299,7 @@ header {
 
 .skils-container {
     height: 242px;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -350,4 +356,160 @@ header {
     margin: 0 20px;
     height: 72px;
     width: 280px;
+}
+
+.section-portfolio {
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+}
+
+.portfolio-buttons {
+    height: 55px;
+    width: 895px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.portfolio-button-winter,
+.portfolio-button-spring,
+.portfolio-button-summer {
+    background-color: #000;
+    color: #BDAE82;
+    height: 55px;
+    width: 220px;
+    border: 2px solid #BDAE82;
+    transition-duration: 0.7s;
+}
+
+
+.portfolio-button-autumn {
+    background-color: #BDAE82;
+    color: #000;
+    height: 55px;
+    width: 220px;
+    border: 2px solid #BDAE82;
+    transition-duration: 0.7s;
+}
+
+.portfolio-photos-container {
+    height: 1105px;
+    margin: 35px 20px 0 20px; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.portfolio-photo {
+    height: 560px;
+    width: 450px;
+    margin-top: 25px;
+}
+
+.section-video {
+    height: 945px;
+    background-color: #000;
+}
+
+.video-player {
+    height: 705px;
+    width: 1400px;
+    margin: 0 20px;
+    background-image: url('./assets/img/video-player.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-button {
+    background-color: inherit;
+    height: 130px;
+    width: 130px;
+    transition-duration: 0.7s;
+}
+.player-button:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    transition-duration: 0.7s;
+}
+
+.section-price {
+    height: 845px;
+    background-color: #000;
+}
+
+.price-container {
+    height: 505px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.price-item {
+    height: 505px;
+    width: 450px;
+    border: 2px solid #BDAE82;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-name {
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 56px;
+    text-align: center;
+    color: #fff;
+    margin: 43px 0 20px 0;
+}
+
+.price {
+    height: 48px;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 48px;
+    text-align: center;
+    color: #BDAE82;
+}
+
+.price-description {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    
+}
+
+ul {
+    padding: 0;
+}
+
+.price-descr-item {
+    list-style: none;
+    padding: 0px;
+}
+
+.price-button {
+    height: 55px;
+    width: 220px;
+    margin: 22px auto 0 auto;
+    background-color: #BDAE82;
+}
+
+
+
+.section-contacts {
+    height: 700px;
+    background-color: #000;
 }
