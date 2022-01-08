@@ -98,6 +98,7 @@ html {
 body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    background-color: #000;
 }
 
 .container {
@@ -597,10 +598,95 @@ ul {
 
 .footer-container {
     height: 150px;
+    padding: 0 20px;
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 50px;
     color: #FFFFFF;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+ul.footer-social li {
+    display: block;
+}
+
+.footer-left-side {
+    width: 180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    transition-duration: 0.7s;
+}
+.link:hover {
+    color: #BDAE82;
+    transition-duration: 0.7s;
+}
+
+.year {
+    color: #fff;
+}
+.year:hover {
+    transform: rotate(1080deg);
+    transition-duration: 1s;
+    color: red;
+}
+
+.footer-social {
+    height: 50px;
+    width: 188px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.social-instagram {
+    height: 32px;
+    width: 32px;
+    background-image: url('./assets/svg/instagram.svg');
+    transition-duration: 0.7s;
+}
+
+.social-facebook {
+    height: 32px;
+    width: 32px;
+    background-image: url('./assets/svg/facebook.svg');
+    transition-duration: 0.7s;
+}
+
+.social-twitter {
+    height: 32px;
+    width: 32px;
+    background-image: url('./assets/svg/twitter.svg');
+    transition-duration: 0.7s;
+}
+
+.social-pinterest {
+    height: 32px;
+    width: 32px;
+    background-image: url('./assets/svg/pinterest.svg');
+    transition-duration: 0.7s;
+}
+
+.social-instagram:hover,
+.social-facebook:hover,
+.social-twitter:hover,
+.social-pinterest:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    transition-duration: 0.7s;
 }
