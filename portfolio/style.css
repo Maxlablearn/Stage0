@@ -579,12 +579,24 @@ header {
     max-width: 100%;
     margin-top: 60px;        /* min-height: 705px;       */
 }
+@media screen and (max-width: 768px) {
+    .video-player {
+        height: 418px;
+        margin: 50px 0 0;
+    }  
+}
 
 .player-button {
     background-color: inherit;
-    height: 8,5%;
-    width: 8,5%;
+    height: 8.5%;
+    width: 8.5%;
     transition-duration: 0.7s;
+}
+@media screen and (max-width: 768px) {
+    .player-button {
+        height: 75px;
+        width: 75px;
+    }
 }
 .player-button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -598,12 +610,22 @@ header {
 }
 
 .price-container {
-    height: 505px;
+    min-height: 505px;
     padding: 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 60px;
+}
+@media screen and (max-width: 1200px) {
+    .price-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+    }
+   /* .price-container :first-child {
+        margin-top: 0;
+    }       */
 }
 
 .price-item {
@@ -613,9 +635,15 @@ header {
     border: 2px solid #BDAE82;
     display: flex;
     flex-direction: column;
-
-    
 }
+@media screen and (max-width: 1200px) {
+    .price-item {
+        width: 420px;
+        margin-top: 50px;
+        
+    }
+}
+
 
 .price-name {
     font-family: Merriweather;
