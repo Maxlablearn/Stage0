@@ -815,8 +815,16 @@ ul {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        height: 190px;
+        justify-content: space-around;
+        padding: 15px 0 30px;
+    }
+}
+
 ul.footer-social li {
     display: block;
 }
@@ -848,6 +856,13 @@ ul.footer-social li {
     transition-duration: 1s;
     color: red;
 }
+
+@media screen and (max-width: 768px) {
+    .footer-center {
+        margin-top: -12px;
+    }
+}
+
 
 .footer-social {
     height: 50px;
