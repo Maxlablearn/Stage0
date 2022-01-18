@@ -699,6 +699,14 @@ ul {
     background-image: url('./assets/img/contacts-image.jpg');
     margin-top: 100px;
 }
+@media screen and (max-width: 768px) {
+    .section-contacts {
+        background-image: url('./assets/img/contacts-image-tablet.jpg');
+        height: 600px;
+        margin-top: 80px;
+    }
+    
+}
 
 .contacts-form {
     height: 640px;
@@ -706,6 +714,13 @@ ul {
     margin: 60px 20px 0 auto;
     display: flex;
     flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+    .contacts-form {
+        margin: 60px auto;
+        align-items: center;
+    }
+    
 }
 
 .section-title-contacts {
@@ -715,8 +730,12 @@ ul {
     font-size: 40px;
     line-height: 80px;
     color: #BDAE82;
-    
-    
+}
+@media screen and (max-width: 768px) {
+    .section-title-contacts {
+        font-size: 32px;
+        line-height: 64px;
+    }
 }
 
 .email-input {
