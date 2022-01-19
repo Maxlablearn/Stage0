@@ -9,7 +9,7 @@
     padding: 0;
     }
 
-    body, h1, h2, h3, h4, p, ul[class], ol[class], li,
+    body, h1, h2, h3, h4, p, ul/*[class]*/, ol[class], li,
     figure, figcaption, blockquote, dl, dd {
     margin: 0;
     }
@@ -166,6 +166,7 @@ header {
     background: url('./assets/img/hero-bg.jpg');
     background-repeat: no-repeat;
     background-position: center 0;
+    overflow-x: hidden;
 }
 @media screen and (max-width: 768px) {
     .header-container {
@@ -173,6 +174,7 @@ header {
         background-repeat: no-repeat;
         background-position: center 0;
         justify-content: space-between;
+        overflow: hidden;
     }
 }
 .logo {
@@ -199,11 +201,6 @@ header {
 .navigation {
     margin-left: auto;
     min-width: 400px;
-}
-@media screen and (max-width: 768px) {
-    .navigation {
-        display: none;
-    }
 }
 
 .nav-item {
@@ -234,6 +231,45 @@ header {
     transition-duration: 0.7s;
     color: #BDAE82;
 }
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        
+        width: 620px;
+        height: 100vh;
+        position: fixed;
+        background-color: #000;
+        z-index: 4;
+        right: -620px;
+     /*   padding-top: 135px;
+        padding-left: 125px;    */
+        transition: 0.5s;
+        padding-top: 130px;
+
+    }
+    .show {
+        right: 0px;
+        transition: 0.5s;
+    }
+    .nav-list {
+        flex-direction: column;
+        min-height: 430px;
+        min-width: 155px;
+        align-items: flex-start;
+        top: 135px;
+        margin-left: 125px;
+    }
+    .nav-item {
+        font-size: 35px;
+        line-height: 70px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .navigation {
+        width: 100vw;
+    }
+}
+
 
 .language {
     height: 50px;
@@ -284,7 +320,7 @@ header {
     cursor: pointer;
     user-select: none;
     margin: 15px 60px 20px 0px;
-    z-index: 2;
+    z-index: 5;
 }
 
 @media screen and (max-width: 768px) {
@@ -776,7 +812,11 @@ ul {
         margin: 60px auto;
         align-items: center;
     }
-    
+}
+@media screen and (max-width: 450px) {
+    .contacts-form {
+        width: 100vw;
+    }
 }
 
 .section-title-contacts {
