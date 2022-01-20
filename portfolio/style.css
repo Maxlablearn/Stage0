@@ -105,7 +105,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     overflow: hidden;
 }
 
@@ -138,7 +137,6 @@ h2 {
         line-height: 40px;
     }
 }
-
 
 button {
     border: 0;
@@ -177,6 +175,7 @@ header {
         overflow: hidden;
     }
 }
+
 .logo {
     height: 40px;
     width: 50px;
@@ -241,8 +240,6 @@ header {
         background-color: #000;
         z-index: 4;
         right: -620px;
-     /*   padding-top: 135px;
-        padding-left: 125px;    */
         transition: 0.5s;
         padding-top: 130px;
 
@@ -334,7 +331,6 @@ header {
     height: 2px;
     background: #fff;
     margin: 5px 0;
-    
     z-index: 15;
     transition: all 0.7s ease-in-out;
 }
@@ -435,7 +431,6 @@ header {
 
 .section-skills {
     min-height: 480px;
-    
 }
 
 .section-name {
@@ -483,12 +478,10 @@ header {
     .section-title {
         font-size: 32px;
         line-height: 40px;
-       
     }
 }
 
 .skills-container {
-  /*  height: 242px;        */
     padding: 0 20px;
     display: flex;
     flex-direction: row;
@@ -568,7 +561,6 @@ header {
 @media screen and (max-width: 768px) {
     .skill-name {
         margin-top: 30px;
-
     }
 }
 
@@ -591,7 +583,6 @@ header {
 }
 
 .section-portfolio {
-            /*  height: 1500px;     */
     display: flex;
     flex-direction: column;
     background-color: #000;
@@ -603,7 +594,6 @@ header {
 }
 
 .portfolio-buttons {
-  /*  height: 55px;     */
     max-width: 904px;
     display: flex;
     flex-direction: row;
@@ -616,7 +606,6 @@ header {
         margin: 47px auto 0;
     }
 }
-
 
 .portfolio-button-half {
     min-width: 50%;
@@ -643,9 +632,6 @@ header {
     transition-duration: 0.7s;
     margin-left: 6px;
 }
-    /*.portfolio-buttons :first-child {
-    margin-left: 0;
-}       */
 
 .portfolio-button-autumn {
     background-color: #BDAE82;
@@ -658,7 +644,6 @@ header {
 }
 
 .portfolio-photos-container {
-            /*  height: 1105px;            */
     margin: 35px 0px 0 0px; 
     display: flex;
     flex-direction: row;
@@ -668,29 +653,24 @@ header {
 }
 
 .portfolio-photo {
-        /* height: 560px;
-            width: 450px;   */
     margin-top: 25px;
 }
 
 .section-video {
-            /*  height: 945px;      */
     background-color: #000;
 }
 
 .video-player {
     height: 705px;
-             /*  width: 1400px;        */
     margin: 0 20px;
     background-image: url('./assets/img/video-player.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;
-    margin-top: 60px;        /* min-height: 705px;       */
+    margin-top: 60px;      
 }
 @media screen and (max-width: 768px) {
     .video-player {
@@ -718,7 +698,6 @@ header {
 }
 
 .section-price {
-  /*  height: 845px;*/
     background-color: #000;
 }
 
@@ -736,9 +715,6 @@ header {
         align-items: center;
         margin-top: 0px;
     }
-   /* .price-container :first-child {
-        margin-top: 0;
-    }       */
 }
 
 .price-item {
@@ -753,7 +729,6 @@ header {
     .price-item {
         width: 420px;
         margin-top: 50px;
-        
     }
 }
 @media screen and (max-width: 440px) {
@@ -792,7 +767,7 @@ header {
     line-height: 36px;
     text-align: center;
     color: #FFFFFF;
-              margin-top: 20px;
+    margin-top: 20px;
 }
 
 ul {
@@ -823,7 +798,6 @@ ul {
         height: 600px;
         margin-top: 80px;
     }
-    
 }
 
 .contacts-form {
@@ -968,7 +942,6 @@ ul.footer-social li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .link {
