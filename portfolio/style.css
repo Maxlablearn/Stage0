@@ -98,6 +98,10 @@ body {
     background-color: #000;
 }
 
+.lock {
+    overflow: hidden;
+}
+
 .container {
     min-height: 100vh;
     max-width: 1440px;
@@ -233,7 +237,7 @@ header {
 
 @media screen and (max-width: 768px) {
     .navigation {
-        
+        overflow: auto;
         width: 620px;
         height: 100vh;
         position: fixed;

@@ -1,15 +1,17 @@
 const hamburgerLogo = document.querySelector('.hamburger');
-const hamburgerMenu = document.querySelector('.navigation')
+const hamburgerMenu = document.querySelector('.navigation');
 
 function toggleMenu() {
     hamburgerLogo.classList.toggle('open');
     hamburgerMenu.classList.toggle('show');
+    document.body.classList.toggle('lock');
 }
 
 function closeMenu(event) {
     if (event.target.classList.contains('nav-link')) {
         hamburgerMenu.classList.remove('show');
         hamburgerLogo.classList.remove('open');
+        document.body.classList.remove('lock');
     }
 }
 
