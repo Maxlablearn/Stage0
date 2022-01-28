@@ -246,7 +246,6 @@ header {
         right: -620px;
         transition: 0.5s;
         padding-top: 130px;
-
     }
     .show {
         right: 0px;
@@ -260,9 +259,9 @@ header {
         top: 135px;
         margin-left: 125px;
     }
-    .nav-item {
+    .nav-link {
         font-size: 35px;
-        line-height: 70px;
+        line-height: 70px; 
     }
 }
 @media screen and (max-width: 620px) {
