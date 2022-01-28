@@ -624,9 +624,7 @@ header {
     }
 }
 
-.portfolio-button-winter,
-.portfolio-button-spring,
-.portfolio-button-summer {
+.portfolio-button {
     background-color: #000;
     color: #BDAE82;
     height: 55px;
@@ -636,7 +634,7 @@ header {
     margin-left: 6px;
 }
 
-.portfolio-button-autumn {
+.portfolio-button.active {
     background-color: #BDAE82;
     color: #000;
     height: 55px;
