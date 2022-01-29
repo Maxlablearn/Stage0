@@ -1,5 +1,28 @@
 import i18Obj from './translate.js';
 
+let lang = 'en';
+let theme = 'light';
+
+function setLocalStorage() {
+    localStorage.setItem('lang', lang);
+    localStorage.setItem('theme', theme);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+    if (localStorage.getItem('lang')) {
+        lang = localStorage.getItem('lang');
+    }
+    getTranslateTo(lang);
+    if (localStorage.getItem('theme')) {
+        theme = localStorage.getItem('theme');
+    }
+    if (document.body.classList[1] !== 'light-theme' && theme === 'light' || document.body.classList[1] === 'light-theme' && theme === 'dark') {
+        changeTheme();
+    }
+}
+
+window.addEventListener('load', getLocalStorage);
 
 const hamburgerLogo = document.querySelector('.hamburger');
 const hamburgerMenu = document.querySelector('.navigation');
@@ -46,7 +69,17 @@ function getTranslate(event) {
     textArea.forEach(elem => elem.textContent = i18Obj[language][elem.dataset.i18n]);
     langButton.forEach(elem => elem.classList.remove('active-lang'));
     event.target.classList.add('active-lang');
+    lang = language;
 };
+
+function getTranslateTo(language) {
+    
+    textArea.forEach(elem => elem.textContent = i18Obj[language][elem.dataset.i18n]);
+    langButton.forEach(elem => elem.classList.remove('active-lang'));
+    language === 'en' ? langButton[0].classList.add('active-lang') : langButton[1].classList.add('active-lang');
+    lang = language;
+};
+
 langButtons.addEventListener('click', getTranslate);
 
 
@@ -58,6 +91,7 @@ const themeBtn = document.querySelector('.theme-btn');
 
 function changeTheme() {
     lightThemeElements.forEach(elem => elem.classList.toggle('light-theme'));
+    document.body.classList[1] === 'light-theme' ? theme = 'light' : theme = 'dark';
 }
 
 themeBtn.addEventListener('click', changeTheme);
