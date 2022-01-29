@@ -3,11 +3,13 @@ import i18Obj from './translate.js';
 
 const hamburgerLogo = document.querySelector('.hamburger');
 const hamburgerMenu = document.querySelector('.navigation');
+const hamburgerLines = document.querySelectorAll('.line');
 
 function toggleMenu() {
     hamburgerLogo.classList.toggle('open');
     hamburgerMenu.classList.toggle('show');
     document.body.classList.toggle('lock');
+    hamburgerLines.forEach(item => item.classList.toggle('open'));
 }
 
 function closeMenu(event) {
@@ -15,6 +17,7 @@ function closeMenu(event) {
         hamburgerMenu.classList.remove('show');
         hamburgerLogo.classList.remove('open');
         document.body.classList.remove('lock');
+        hamburgerLines.forEach(item => item.classList.remove('open'));
     }
 }
 hamburgerLogo.addEventListener('click', toggleMenu);
@@ -46,4 +49,18 @@ function getTranslate(event) {
 };
 langButtons.addEventListener('click', getTranslate);
 
+
+const lightThemeElements = document.querySelectorAll(['.theme-btn', '.body', '.navigation', 
+'.nav-link', '.line', '.section-skills', '.section-portfolio', '.section-video', '.section-price', 
+'.section-name', '.section-name-line', '.skills-container', '.price-item', '.portfolio-button']);
+
+const themeBtn = document.querySelector('.theme-btn');
+
+function changeTheme() {
+    lightThemeElements.forEach(elem => elem.classList.toggle('light-theme'));
+}
+
+themeBtn.addEventListener('click', changeTheme);
+
 console.log(`Вёрстка соответствует макету (+-10px)на ширине экрана 768px - 48\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки - 15\nНа ширине экрана 768рх и меньше реализовано адаптивное меню - 22\nСуммарно - 75`);
+
