@@ -144,6 +144,8 @@ button {
 button:hover {
     color: #fff;
     transition-duration: 0.7s;
+
+    box-shadow: inset 13em 0 0 0 #BDAE82;
 }
 
 header {
@@ -449,6 +451,8 @@ header {
 .hero-button:hover {
     color: #ffffff;
     transition-duration: 0.7s;
+
+    box-shadow: inset 13em 0 0 0 #000;
 }
 
 .section-skills, .section-portfolio, .section-video,
@@ -836,6 +840,10 @@ ul {
     width: 220px;
     margin: 37px auto 0 auto;
     background-color: #BDAE82;
+    border: #BDAE82 solid 2px;
+}
+.price-button:hover {
+    box-shadow: inset 13em 0 0 0 #000;
 }
 
 .section-contacts {
@@ -961,6 +969,10 @@ ul {
     margin-top: 30px;
     border: 2px solid #BDAE82;
     transition-duration: 0.7s;
+}
+.send-message-button:hover {
+    box-shadow: inset 13em 0 0 0 #000;
+    color: #fff;
 }
 
 .footer-container {
