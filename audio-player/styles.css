@@ -110,6 +110,89 @@ body {
   height: 65px;
   border: 2px solid goldenrod;
   border-radius: 50%;
+ /* position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);*/
+}
+
+.play-btn-center {
+  width: 24px;
+  height: 32px;
+  overflow: hidden;
+  position: relative;
+  top: 15px;
+  left: 19px
+
+}
+
+.bar {
+  position: absolute;
+  width: 4px;
+  background-color: goldenrod;
+  border-radius: 2px;
+  transition: 0.4s ease transform, 0.4s ease top, 0.4s ease bottom;
+}
+
+.bar1 {
+  top: 0px;
+  bottom: 0px;
+
+  background-color: green;
+}
+
+.bar2 {
+  top: -5px;
+  left: 10px;
+  height: 28px;
+  transform: rotateZ(-55deg) translateY(0px);
+
+  background-color: firebrick;
+}
+.bar2.pause {
+  transform: rotateZ(-60deg) translateY(30px);
+}
+
+.bar3 {
+  top: 9px;
+  left: 10px;
+  height: 28px;
+  transform: rotateZ(55deg) translateY(0);
+
+
+  background-color: hotpink;
+}
+.bar3.pause {
+  transform: rotateZ(60deg) translateY(-30px);
+  transition-delay: 0.5s;
+}
+
+.bar4 {
+  top: 14px;
+  right: 0px;
+  bottom: 14px;
+  
+
+
+  background-color: skyblue;
+}
+.bar5 {
+  top: 14px;
+  right: 0px;
+  bottom: 14px;
+  transition-delay: 0.5s;
+
+
+  background-color: darkred;
+}
+.bar4.pause {
+  bottom: 0px;
+}
+.bar5.pause {
+  top: 0px;
+  transition-delay: 0.5s
 }
 
 .next-btn {
@@ -132,6 +215,7 @@ body {
   width: 45px;
   margin-left: 10px;
   border: 1px dotted lawngreen;
+  text-align: right;
 
 }
 
@@ -154,8 +238,13 @@ body {
 .github {
   height: 30px;
   width: 30px;
-  background-image: url(./assets/icons/github-icon.svg);
-  border: 1px dotted lawngreen;
+  background: url(./assets/icons/github-icon.svg) no-repeat;
+
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+  
+  background-position: center center; 
+  background-size: contain;
 
 }
 
@@ -163,8 +252,11 @@ body {
 
 .shool {
   height: 30px;
-  width: 30px;
-  background-image: url(./assets/icons/logo-rs.svg);
-  border: 1px dotted lawngreen;
-  
+  width: 35px;
+  background: url(./assets/icons/logo-rs.svg) no-repeat;
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+
+  background-position: center center; 
+  background-size: contain;
 }
