@@ -95,7 +95,22 @@ body {
 
 .album-image {
   border-radius: 10px 10px 0px 0px;
-  object-fit: contain;
+  height: 360px;
+  object-fit: cover;
+  position: absolute;
+  z-index: -2;
+}
+
+.artist {
+  font-size: 26px;
+  text-shadow: 1px 1px 5px RGB(20,20,20);
+  margin-left: 10px;
+}
+
+.song-title {
+  font-size: 18px;
+  text-shadow: 1px 1px 5px RGB(20,20,20);
+  margin-left: 10px;
 }
 
 .controls {
@@ -108,7 +123,7 @@ body {
 /*  background: rgba(50, 50, 50, 0.8) url('./assets/img/background-hd.png') center;
   background-size: cover;
   backdrop-filter: blur(2px);*/
-  background-image: linear-gradient(30deg, #262626 10%, #404040 50%, #262626 10%);
+  background-image: linear-gradient( 30deg, RGBA(0,0,0,0.6) 0%, RGBA(30,30,30,0.6) 50%, RGBA(0,0,0,0.6) 100%);
 }
 
 .buttons {
@@ -128,7 +143,7 @@ body {
   height: 65px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(50, 50, 50, 0.8);
+  background-color: rgba(20, 20, 20, 0.8);
 }
 
 .play-btn-center {
@@ -201,7 +216,7 @@ body {
   height: 45px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(50, 50, 50, 0.8);
+  background-color: rgba(20, 20, 20, 0.8);
 
 }
 
@@ -241,7 +256,7 @@ body {
   height: 45px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(50, 50, 50, 0.8);
+  background-color: rgba(20, 20, 20, 0.8);
 
 }
 
@@ -289,16 +304,19 @@ body {
 .current-time {
   width: 45px;
   margin-left: 10px;
-  border: 1px dotted lawngreen;
-  text-align: right;
-
+  text-align: center;
+  background-color: rgba(20, 20, 20, 0.4);
+  border-radius: 10%;
+  box-shadow: 0px 0px 10px RGB(20,20,20);
 }
 
 .song-time {
   width: 45px;
   margin-right: 10px;
-  border: 1px dotted lawngreen;
 
+  text-align: center;
+  background-color: rgba(20, 20, 20, 0.4);
+  box-shadow: 0px 0px 10px RGB(20,20,20);
 }
 
 .footer {
@@ -306,7 +324,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
+  background-color: rgba(20, 20, 20, 0.6);
   font-size: 10px;
 }
 
@@ -315,8 +333,7 @@ body {
   width: 30px;
   background: url(./assets/icons/github-icon.svg) no-repeat;
 
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-  contrast(87%);
+  filter: invert(57%) sepia(53%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(100%);
   
   background-position: center center; 
   background-size: contain;
@@ -329,8 +346,7 @@ body {
   height: 30px;
   width: 35px;
   background: url(./assets/icons/logo-rs.svg) no-repeat;
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-  contrast(87%);
+  filter: invert(16%) sepia(55%) saturate(517%) hue-rotate(-1deg) brightness(79%) contrast(90%);
 
   background-position: center center; 
   background-size: contain;

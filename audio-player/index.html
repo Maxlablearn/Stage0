@@ -8,8 +8,8 @@
   <title>Audio player</title>
 </head>
 <body>
-  <img src="./assets/img/lemonade (1).png" class="bg-cover" alt="">
-  <audio src="./assets/audio/beyonce.mp3" class="audio"></audio>
+  <img src="./assets/img/lemonade (1).png" class="bg-cover" alt="background">
+  <audio preload="metadata" src="./assets/audio/beyonce.mp3" class="audio" id="audioId"></audio>
   <div class="container">
     <div class="header">
       <img class="album-image" src="./assets/img/lemonade (1).png" alt="Album image">
@@ -43,9 +43,9 @@
         </div>
       </div>
       <div class="progress">
-        <div class="current-time">1:25</div>
-        <input type="range">
-        <div class="song-time">2:56</div>
+        <div class="current-time" id="curr-time">0:00</div>
+        <input type="range" class="progressBar" id="progress" min="0">
+        <div class="song-time">0:00</div>
       </div>
     </div>
     <div class="footer">
