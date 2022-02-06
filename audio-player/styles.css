@@ -70,7 +70,7 @@ body {
   z-index: -5;
   filter: contrast(0.3);
   filter: blur(5px);
-  object-fit:fill;
+  object-fit:cover;
 }
 
 .container {
@@ -85,11 +85,8 @@ body {
 
 .header {
   height: 360px;
-/*  border: 1px solid darkorange; */
   display: flex;
   flex-direction: column;
-/*  background: url('./assets/img/lemonade\ \(1\).png');*/
-
   overflow: hidden;
 }
 
@@ -119,10 +116,6 @@ body {
   border-bottom: 2px solid goldenrod;
   display: flex;
   flex-direction: column;
-  
-/*  background: rgba(50, 50, 50, 0.8) url('./assets/img/background-hd.png') center;
-  background-size: cover;
-  backdrop-filter: blur(2px);*/
   background-image: linear-gradient( 30deg, RGBA(0,0,0,0.6) 0%, RGBA(30,30,30,0.6) 50%, RGBA(0,0,0,0.6) 100%);
 }
 
@@ -133,10 +126,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 5px 40px 0px 40px;
-
 }
-
-
 
 .play-btn {
   width: 65px;
@@ -144,6 +134,12 @@ body {
   border: 2px solid goldenrod;
   border-radius: 50%;
   background-color: rgba(20, 20, 20, 0.8);
+  transition: 500ms;
+}
+.play-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+  box-shadow: 0px 0px 10px 8px rgba(139, 106, 22, 0.5), 0px 0px 10px 4px rgba(139, 106, 22, 0.5) inset;
 }
 
 .play-btn-center {
@@ -153,7 +149,6 @@ body {
   position: relative;
   top: 15px;
   left: 19px
-
 }
 
 .bar {
@@ -217,7 +212,12 @@ body {
   border: 2px solid goldenrod;
   border-radius: 50%;
   background-color: rgba(20, 20, 20, 0.8);
-
+  transition: 500ms;
+}
+.prev-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+  box-shadow: 0px 0px 10px 8px rgba(139, 106, 22, 0.5), 0px 0px 10px 4px rgba(139, 106, 22, 0.5) inset;
 }
 
 .prev-btn-center {
@@ -227,7 +227,6 @@ body {
   position: relative;
   top: 6px;
   left: 9px;
-/*  border: 1px dotted greenyellow;*/
 }
 
 .bar6 {
@@ -248,7 +247,6 @@ body {
 .bar8 {
   top: 2px;
   bottom: 2px;
-  
 }
 
 .next-btn {
@@ -257,7 +255,12 @@ body {
   border: 2px solid goldenrod;
   border-radius: 50%;
   background-color: rgba(20, 20, 20, 0.8);
-
+  transition: 500ms;
+}
+.next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+  box-shadow: 0px 0px 10px 8px rgba(139, 106, 22, 0.5), 0px 0px 10px 4px rgba(139, 106, 22, 0.5) inset;
 }
 
 .next-btn-center {
@@ -267,7 +270,6 @@ body {
   position: relative;
   top: 6px;
   left: 9px;
-/*  border: 1px dotted greenyellow;*/
 }
 
 .bar9 {
@@ -291,14 +293,11 @@ body {
   right: 2px;
 }
 
-
-
 .progress {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 15px;
-  
 }
 
 .current-time {
@@ -319,26 +318,20 @@ body {
   box-shadow: 0px 0px 10px RGB(20,20,20);
 }
 
-/*.progressBar {
-  background: linear-gradient(#D6B200,#D6B200) 0/var(--sx) 100% no-repeat, #efefef;
-}
-  
-.progressBar:hover {
-    background: linear-gradient(#AB9702,#AB9702) 0/var(--sx) 100% no-repeat, #e5e5e5;
-}
-  
-.progressBar:active {
-  background: linear-gradient(#D6B200,#D6B200) 0/var(--sx) 100% no-repeat, #f5f5f5;
-}*/
-
 input[type=range].progressBar {
   height: 20px;
   width: 200px;
   -webkit-appearance: none;
   appearance: none;
   background-color: inherit;
+  border-radius: 6px;
+  transition: 500ms;
 }
-
+.progressBar:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+  box-shadow: 0px 0px 10px 4px rgba(139, 106, 22, 0.5), 0px 0px 10px 8px rgba(139, 106, 22, 0.5) inset;
+}
 
 input[type=range].progressBar:focus {
   outline: none;
@@ -355,7 +348,6 @@ input[type=range].progressBar::-webkit-slider-thumb {
   cursor: pointer;
   appearance: none;
   border: 1px solid RGBA(0,0,0,0.6);
-
 }
 
 input[type=range].progressBar::-webkit-slider-runnable-track {
@@ -365,13 +357,6 @@ input[type=range].progressBar::-webkit-slider-runnable-track {
   background: rgba(218, 165, 32, 0.5);
   box-shadow: none;
 }
-
-
-
-
-
-
-
 
 .footer {
   display: flex;
@@ -386,22 +371,18 @@ input[type=range].progressBar::-webkit-slider-runnable-track {
   height: 30px;
   width: 30px;
   background: url(./assets/icons/github-icon.svg) no-repeat;
-
+  cursor: pointer;
   filter: invert(57%) sepia(53%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(100%);
-  
   background-position: center center; 
   background-size: contain;
-
 }
-
-
 
 .shool {
   height: 30px;
   width: 35px;
   background: url(./assets/icons/logo-rs.svg) no-repeat;
   filter: invert(16%) sepia(55%) saturate(517%) hue-rotate(-1deg) brightness(79%) contrast(90%);
-
+  cursor: pointer;
   background-position: center center; 
   background-size: contain;
 }
