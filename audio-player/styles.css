@@ -132,7 +132,7 @@ body {
   height: 65px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(20, 20, 20, 0.8);
+  background-color: rgba(20, 20, 20, 0.4);
   transition: 500ms;
 }
 .play-btn:hover {
@@ -210,7 +210,7 @@ body {
   height: 45px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(20, 20, 20, 0.8);
+  background-color: rgba(20, 20, 20, 0.4);
   transition: 500ms;
 }
 .prev-btn:hover {
@@ -222,7 +222,6 @@ body {
 .prev-btn-center {
   width: 24px;
   height: 28px;
-/*  overflow: hidden;*/
   position: relative;
   top: 6px;
   left: 9px;
@@ -253,7 +252,7 @@ body {
   height: 45px;
   border: 2px solid goldenrod;
   border-radius: 50%;
-  background-color: rgba(20, 20, 20, 0.8);
+  background-color: rgba(20, 20, 20, 0.4);
   transition: 500ms;
 }
 .next-btn:hover {
@@ -265,7 +264,6 @@ body {
 .next-btn-center {
   width: 24px;
   height: 28px;
-/*  overflow: hidden;*/
   position: relative;
   top: 6px;
   left: 9px;

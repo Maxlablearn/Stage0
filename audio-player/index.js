@@ -91,6 +91,6 @@ playButton.addEventListener('click', playPause);
 prevButton.addEventListener('click', playPrev);
 nextButton.addEventListener('click', playNext);
 progressBar.addEventListener('pointer', playPause);
-progressBar.addEventListener('change', changePlayPosition);
+progressBar.addEventListener('input', changePlayPosition);
 songId.addEventListener('ended', playNext);
 setTimeout(songId.addEventListener('timeupdate', updateProgress), 500);
