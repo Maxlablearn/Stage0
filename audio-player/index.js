@@ -10,6 +10,7 @@ const artistTittle = document.querySelector('.artist');
 const songTittle = document.querySelector('.song-title');
 const bgCover = document.querySelector('.bg-cover');
 const titleImage = document.querySelector('.album-image');
+const progressBar = document.getElementById('progress');
 
 
 let isPlay = false;
@@ -23,12 +24,15 @@ artistTittle.innerText = songsArr[songIndex][1];
 songTittle.innerText = songsArr[songIndex][2];
 bgCover.src = songsArr[songIndex][3];
 titleImage.src = songsArr[songIndex][3];
+window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
+progressBar.value = 0;
+
 
 
 function playPause() {
   isPlay = !isPlay;
-  console.log('bums');
-  console.log(songId.duration, ' - ', songId);
+  //console.log('bums');
+  //console.log(songId.duration, ' / ', timeFormatting(songId.duration));
   if (isPlay) {
     playButtonBars.forEach(el => el.classList.add('pause'));
     songId.play();
@@ -49,13 +53,12 @@ function playNext() {
   isPlay = false;
   songId.src = songsArr[songIndex][0];
   playPause()
-  
   artistTittle.innerText = songsArr[songIndex][1];
   songTittle.innerText = songsArr[songIndex][2];
   bgCover.src = songsArr[songIndex][3];
   titleImage.src = songsArr[songIndex][3];
   window.setTimeout(changeSongDuration, 100);
-  
+  window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
 }
 
 function playPrev() {
@@ -67,27 +70,47 @@ function playPrev() {
   songTime = 0;
   isPlay = false;
   songId.src = songsArr[songIndex][0];
-  
-  playPause()
-
+  playPause();
   artistTittle.innerText = songsArr[songIndex][1];
   songTittle.innerText = songsArr[songIndex][2];
   bgCover.src = songsArr[songIndex][3];
   titleImage.src = songsArr[songIndex][3];
   window.setTimeout(changeSongDuration, 100);
-  
+  window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
 }
 
 function changeSongDuration() {
-  songTimeInd.innerText = `${Math.floor(songId.duration / 60)}:${Math.floor(songId.duration % 60)}`;
+  songTimeInd.innerText = timeFormatting(songId.duration);
+}
+
+function changePlayPosition() {
+  //console.log('progress bar position changed - ', progressBar.value);
+  playPause();
+  songTime = progressBar.value;
+  songId.currentTime = songTime;
+  setTimeout(playPause(), 500);
+}
+
+function updateProgress() {
+  songTime = songId.currentTime;
+  progressBar.value = songTime;
+  currentTime.innerText = timeFormatting(songTime);
+}
+
+function timeFormatting(time) {
+  let min = Math.floor(time / 60);
+  let sec = Math.floor(time % 60);
+  return `${min}:${sec < 10 ? '0' + sec : sec}`
 }
 
 
 playButton.addEventListener('click', playPause);
 prevButton.addEventListener('click', playPrev);
 nextButton.addEventListener('click', playNext);
+progressBar.addEventListener('change', changePlayPosition);
+songId.addEventListener('ended', playNext);
+songId.addEventListener('timeupdate', updateProgress);
 
-console.log(songId);
 
-
-//    
+//progressBar.addEventListener('keydown')
+// console.log(songId);   

@@ -319,6 +319,60 @@ body {
   box-shadow: 0px 0px 10px RGB(20,20,20);
 }
 
+/*.progressBar {
+  background: linear-gradient(#D6B200,#D6B200) 0/var(--sx) 100% no-repeat, #efefef;
+}
+  
+.progressBar:hover {
+    background: linear-gradient(#AB9702,#AB9702) 0/var(--sx) 100% no-repeat, #e5e5e5;
+}
+  
+.progressBar:active {
+  background: linear-gradient(#D6B200,#D6B200) 0/var(--sx) 100% no-repeat, #f5f5f5;
+}*/
+
+input[type=range].progressBar {
+  height: 20px;
+  width: 200px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: inherit;
+}
+
+
+input[type=range].progressBar:focus {
+  outline: none;
+}
+
+/*thumb*/
+input[type=range].progressBar::-webkit-slider-thumb {
+  width: 8px;
+  height: 16px;
+  margin-top: -5px;
+  border-radius: 4px;
+  background: goldenrod;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid RGBA(0,0,0,0.6);
+
+}
+
+input[type=range].progressBar::-webkit-slider-runnable-track {
+  height: 8px;
+  border: 1px solid RGBA(0,0,0,0.6);
+  border-radius: 4px;
+  background: rgba(218, 165, 32, 0.5);
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
 .footer {
   display: flex;
   flex-direction: row;
