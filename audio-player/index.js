@@ -1,4 +1,3 @@
-
 const playButton = document.querySelector('.play-btn');
 const playButtonBars = document.querySelectorAll('.bar');
 const songId = document.getElementById('audioId');
@@ -12,27 +11,24 @@ const bgCover = document.querySelector('.bg-cover');
 const titleImage = document.querySelector('.album-image');
 const progressBar = document.getElementById('progress');
 
-
 let isPlay = false;
 let songIndex = 0;
-let songsArr = [['./assets/audio/beyonce.mp3', 'Beyonce', "Don't Hurt Yourself", './assets/img/lemonade (1).png'],
-                ['./assets/audio/dontstartnow.mp3', "Dua Lipa", "Don't Start Now", './assets/img/dontstartnow (1).png']];
+let songsArr = [['./assets/audio/rolling.mp3', 'Adele', 'Rolling In The Deep', './assets/img/21.jpg'],
+                ['./assets/audio/beyonce.mp3', 'Beyonce', "Don't Hurt Yourself", './assets/img/lemonade (1).png'],
+                ['./assets/audio/dontstartnow.mp3', "Dua Lipa", "Don't Start Now", './assets/img/dontstartnow (1).png'],
+                ['./assets/audio/prostyya.mp3', 'Lavon Volski', 'Prostyja słovy', './assets/img/volsky.jpg']];
 let songTime = 0;
+let songDuration = 0;
 
-
-artistTittle.innerText = songsArr[songIndex][1];
-songTittle.innerText = songsArr[songIndex][2];
-bgCover.src = songsArr[songIndex][3];
-titleImage.src = songsArr[songIndex][3];
-window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
+setSong(songIndex);
 progressBar.value = 0;
-
+setTimeout(changeSongDuration, 500);
+updateProgress();
+changePlayPosition();
 
 
 function playPause() {
   isPlay = !isPlay;
-  //console.log('bums');
-  //console.log(songId.duration, ' / ', timeFormatting(songId.duration));
   if (isPlay) {
     playButtonBars.forEach(el => el.classList.add('pause'));
     songId.play();
@@ -40,61 +36,49 @@ function playPause() {
     playButtonBars.forEach(el => el.classList.remove('pause'));
     songId.pause();
   }
-  window.setTimeout(changeSongDuration, 100);
+  setTimeout(changeSongDuration, 500);
 }
 
 function playNext() {
-  if (songIndex === songsArr.length - 1) {
-    songIndex = 0;
-  } else {
-    songIndex += 1;
-  }
-  songTime = 0;
-  isPlay = false;
-  songId.src = songsArr[songIndex][0];
+  songIndex === songsArr.length - 1 ? songIndex = 0 : songIndex += 1;
+  setSong(songIndex);
+  setTimeout(changeSongDuration, 500);
   playPause()
-  artistTittle.innerText = songsArr[songIndex][1];
-  songTittle.innerText = songsArr[songIndex][2];
-  bgCover.src = songsArr[songIndex][3];
-  titleImage.src = songsArr[songIndex][3];
-  window.setTimeout(changeSongDuration, 100);
-  window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
 }
 
 function playPrev() {
-  if (songIndex === 0) {
-    songIndex = songsArr.length - 1;
-  } else {
-    songIndex -= 1;
-  }
+  songIndex === 0 ? songIndex = songsArr.length - 1 : songIndex -= 1;
+  setSong(songIndex);
+  setTimeout(changeSongDuration, 500);
+  playPause()
+}
+
+function setSong(songNum) {
   songTime = 0;
   isPlay = false;
-  songId.src = songsArr[songIndex][0];
-  playPause();
-  artistTittle.innerText = songsArr[songIndex][1];
-  songTittle.innerText = songsArr[songIndex][2];
-  bgCover.src = songsArr[songIndex][3];
-  titleImage.src = songsArr[songIndex][3];
-  window.setTimeout(changeSongDuration, 100);
-  window.setTimeout(() => progressBar.max = Math.floor(songId.duration), 100);
+  songId.src = songsArr[songNum][0];
+  artistTittle.innerText = songsArr[songNum][1];
+  songTittle.innerText = songsArr[songNum][2];
+  bgCover.src = songsArr[songNum][3];
+  titleImage.src = songsArr[songNum][3];
 }
 
 function changeSongDuration() {
-  songTimeInd.innerText = timeFormatting(songId.duration);
+  songDuration = Math.floor(songId.duration);
+  songTimeInd.innerText = timeFormatting(songDuration);
+  progressBar.max = songDuration;
 }
 
 function changePlayPosition() {
-  //console.log('progress bar position changed - ', progressBar.value);
-  playPause();
   songTime = progressBar.value;
   songId.currentTime = songTime;
-  setTimeout(playPause(), 500);
 }
 
 function updateProgress() {
   songTime = songId.currentTime;
   progressBar.value = songTime;
   currentTime.innerText = timeFormatting(songTime);
+  progressBar.style.background = `linear-gradient(to right, rgba(212, 181, 80, 0.5) 0%, rgba(212, 181, 80, 0.5) ${songTime / songDuration * 100}%, #fff ${songTime / songDuration * 100}%, white 100%)`;
 }
 
 function timeFormatting(time) {
@@ -103,14 +87,10 @@ function timeFormatting(time) {
   return `${min}:${sec < 10 ? '0' + sec : sec}`
 }
 
-
 playButton.addEventListener('click', playPause);
 prevButton.addEventListener('click', playPrev);
 nextButton.addEventListener('click', playNext);
+progressBar.addEventListener('pointer', playPause);
 progressBar.addEventListener('change', changePlayPosition);
 songId.addEventListener('ended', playNext);
-songId.addEventListener('timeupdate', updateProgress);
-
-
-//progressBar.addEventListener('keydown')
-// console.log(songId);   
+setTimeout(songId.addEventListener('timeupdate', updateProgress), 500);
