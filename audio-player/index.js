@@ -37,20 +37,20 @@ function playPause() {
     playButtonBars.forEach(el => el.classList.remove('pause'));
     songId.pause();
   }
-  setTimeout(changeSongDuration, 500);
+  setTimeout(changeSongDuration, 1500);
 }
 
 function playNext() {
   songIndex === songsArr.length - 1 ? songIndex = 0 : songIndex += 1;
   setSong(songIndex);
-  setTimeout(changeSongDuration, 500);
+  setTimeout(changeSongDuration, 1500);
   playPause()
 }
 
 function playPrev() {
   songIndex === 0 ? songIndex = songsArr.length - 1 : songIndex -= 1;
   setSong(songIndex);
-  setTimeout(changeSongDuration, 500);
+  setTimeout(changeSongDuration, 1500);
   playPause()
 }
 
