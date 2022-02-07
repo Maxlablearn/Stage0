@@ -22,7 +22,7 @@ let songDuration = 0;
 
 setSong(songIndex);
 progressBar.value = 0;
-setTimeout(changeSongDuration, 500);
+setTimeout(changeSongDuration, 1000);
 updateProgress();
 changePlayPosition();
 
