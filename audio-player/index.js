@@ -25,6 +25,7 @@ progressBar.value = 0;
 setTimeout(changeSongDuration, 1000);
 updateProgress();
 changePlayPosition();
+setTimeout(changeSongDuration, 3000);
 
 
 function playPause() {
@@ -65,8 +66,14 @@ function setSong(songNum) {
 
 function changeSongDuration() {
   songDuration = Math.floor(songId.duration);
-  songTimeInd.innerText = timeFormatting(songDuration);
-  progressBar.max = songDuration;
+  if (songDuration > 1) {
+    songTimeInd.innerText = timeFormatting(songDuration);
+    progressBar.max = songDuration;  
+  } else {
+    songTimeInd.innerText = timeFormatting(0);
+    progressBar.max = 200;
+  }
+
 }
 
 function changePlayPosition() {
