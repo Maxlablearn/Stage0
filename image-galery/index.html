@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image gallery</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image gallery</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="shortcut icon" href="./assets/icons/unsplash.svg" type="image/x-icon">
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <img class="logo" src="./assets/icons/camera-icon.svg" alt="U">
+          <h1>Unsplash API</h1>
+        </div>
+        <div class="header-center">
+          <div class="find-array">
+            <input type="text">
+            <button class="find-btn"><img src="./assets/icons/search-icon.svg" alt="Find"></button>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="theme">
+            <button class="theme-btn"> <img src="./assets/icons/theme-icon.svg" alt="Theme"></button>
+          </div>        
+        </div>
+      </div>  
+    </header>
     
+    <main>
+      
+      <div class="main-container">
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="footer-container">
+        <div class="footer-github"><a class="link" href="https://github.com/Maxlablearn">github</a></div>
+        <div class="footer-year">2022</div>
+        <div class="footer-school"><a class="link" href=" https://rs.school/js-stage0/">Rolling Scopes School</a></div>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="./index.js"></script>
 </body>
 </html>
