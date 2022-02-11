@@ -5,11 +5,12 @@ const accKey = '2v_R0BwfjSQ_06kXpJC636D_FOPqurnyEWeaUQIjano';
 const imgContainer = document.querySelector('.main-container');
 const themeBtn = document.querySelector('.theme-btn');
 const themeElements = document.querySelectorAll('[data-th]');
+const findArr = document.querySelector('.find-array');
 
 
 
 let images = [];
-let countPhotos = 12;
+let countPhotos = 24;
 
 
 
@@ -19,10 +20,6 @@ async function getData() {
     console.log(data);
     showData(data);
 }
-
-getData();
-
-
 
 function showData (data) {
     images = data.map(element => {
@@ -41,7 +38,13 @@ function changeTheme() {
     });
 }
 
+function findData(event) {
+    console.log(event);
+}
+
+getData();
 themeBtn.addEventListener('click', changeTheme);
+findArr.addEventListener('change', findData);
 
 
 
