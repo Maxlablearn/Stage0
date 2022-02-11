@@ -105,34 +105,85 @@ h1 {
   margin-left: 20px;
 }
 
+.find-array {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #ee534f;
+  border-radius: 20px;
+  background-color: white;
+}
 
+.find-input {
+  height: 40px;
+  min-width: 250px;
+  border: none;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+.find-input:hover {
+  border: 2px solid #ee534f;
+}
+.find-input:active {
+  border: 2px solid #ee534f;
+}
+
+.find-btn {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.theme-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ee534f;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.theme-btn>img {
+  height: 50px;
+  width: 50px;
+  
+}
 
 .logo {
   height: 50px;
 }
 
+.header-center {
+  width: 300px;
+
+}
+
 main {
+  max-width: 1400px;
+  min-width: 400px;
   flex: 1 0 auto;
+  margin: 0 auto;
   margin-top: 70px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .main-container {
-  max-width: 1400px;
-  margin: 0 auto;
+/*  max-width: 1400px;*/
+  margin: 0 -10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   
   flex-wrap: wrap;
 }
 
-.im {
-  height: 400px;
-  width: 300px;
-  margin-top: 20px;
+.image {
+  height: 300px;
+  width: 400px;
+  margin: 10px;
   border: 1px dashed #ee534f;
-  
+  display: block;
+  object-fit: cover;
 }
 
 
