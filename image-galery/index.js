@@ -3,9 +3,12 @@
 const url = 'https://api.unsplash.com';
 const accKey = '2v_R0BwfjSQ_06kXpJC636D_FOPqurnyEWeaUQIjano';
 const imgContainer = document.querySelector('.main-container');
+const themeBtn = document.querySelector('.theme-btn');
+const themeElements = document.querySelectorAll('[data-th]');
+
+
+
 let images = [];
-
-
 let countPhotos = 12;
 
 
@@ -31,6 +34,14 @@ function showData (data) {
     });
 }
 
+function changeTheme() {
+    console.log('---theme---')
+    themeElements.forEach((element) => {
+        element.classList.toggle('dark');
+    });
+}
+
+themeBtn.addEventListener('click', changeTheme);
 
 
 
