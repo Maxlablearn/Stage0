@@ -78,6 +78,7 @@ findBtn.addEventListener('click', () => {
         findData(findInput.value)
     } else {
         findInput.value = '';
+        findBtnImg.src = "./assets/icons/search-icon.svg";
     }
 });
 
