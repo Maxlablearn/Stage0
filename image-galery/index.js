@@ -9,17 +9,18 @@ const themeElements = document.querySelectorAll('[data-th]');
 const findArr = document.querySelector('.find-array');
 const findInput = document.querySelector('.find-input');
 const findBtn = document.querySelector('.find-btn');
+const findBtnImg = document.querySelector('.find-btn-img');
 
 
 let images = [];
 let countPhotos = 24;
+let isSearch = false;
 
 
 
 async function getData() {
     const res = await fetch(`${url}/photos/random?count=${countPhotos};query=&client_id=${accKey}`);
     const data = await res.json();
-    
     showData(data);
     console.log(data);
 }
@@ -45,9 +46,12 @@ async function findData(find) {
     console.log('find text = ', find);
     const res = await fetch(`${url}/search/photos?count=${countPhotos};query=${find}&client_id=${accKey}`);
     const data = await res.json();
-    console.log('find data = ',data);
+    
     imgContainer.innerHTML = '';
     showFoundData(data);
+    isSearch = true;
+    findBtnImg.src = "./assets/icons/cross.svg";
+    
     
 }
 
@@ -69,8 +73,13 @@ findArr.addEventListener('keyup', (event) => {
         findData(findInput.value);
     }
 });
-findBtn.addEventListener('click', findData/*(findInput.value)*/);
-
+findBtn.addEventListener('click', () => {
+    if (!isSearch) {
+        findData(findInput.value)
+    } else {
+        findInput.value = '';
+    }
+});
 
 
 
