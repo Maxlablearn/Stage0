@@ -2,11 +2,13 @@
 
 const url = 'https://api.unsplash.com';
 const accKey = '2v_R0BwfjSQ_06kXpJC636D_FOPqurnyEWeaUQIjano';
+
 const imgContainer = document.querySelector('.main-container');
 const themeBtn = document.querySelector('.theme-btn');
 const themeElements = document.querySelectorAll('[data-th]');
 const findArr = document.querySelector('.find-array');
-
+const findInput = document.querySelector('.find-input');
+const findBtn = document.querySelector('.find-btn');
 
 
 let images = [];
@@ -17,8 +19,9 @@ let countPhotos = 24;
 async function getData() {
     const res = await fetch(`${url}/photos/random?count=${countPhotos};query=&client_id=${accKey}`);
     const data = await res.json();
-    console.log(data);
+    
     showData(data);
+    console.log(data);
 }
 
 function showData (data) {
@@ -38,13 +41,36 @@ function changeTheme() {
     });
 }
 
-function findData(event) {
-    console.log(event);
+async function findData(find) {
+    console.log('find text = ', find);
+    const res = await fetch(`${url}/search/photos?count=${countPhotos};query=${find}&client_id=${accKey}`);
+    const data = await res.json();
+    console.log('find data = ',data);
+    imgContainer.innerHTML = '';
+    showFoundData(data);
+    
 }
+
+function showFoundData(data) {
+    images = data.results.map((element) => {
+        const image = document.createElement('img');
+        image.classList.add('image');
+        image.src = element.urls.regular;
+        image.alt = 'image';
+        imgContainer.append(image);
+    })
+}
+
 
 getData();
 themeBtn.addEventListener('click', changeTheme);
-findArr.addEventListener('change', findData);
+findArr.addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+        findData(findInput.value);
+    }
+});
+findBtn.addEventListener('click', findData/*(findInput.value)*/);
+
 
 
 
