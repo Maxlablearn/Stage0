@@ -1,1 +1,96 @@
-/* styles*/
+/* -----reset styles----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class], ol[class] {
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, p, ul/*[class]*/, ol[class], li,
+figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul[class], ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+/* -----reset styles----- */
+
+/* roboto-condensed-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+      url('./assets/fonts/roboto-condensed-v24-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/roboto-condensed-v24-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-condensed-700 - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+      url('./assets/fonts/roboto-condensed-v24-latin_cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/roboto-condensed-v24-latin_cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+  font-family: Roboto Condensed;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-field {
+  min-height: 320px;
+  height: 60vh;
+  min-width: 320px;
+  width: 60vh;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(4, auto);
+  align-items: center;
+  justify-items: center;
+  gap: 0.5vh;
+
+  background-color: darkslategray;
+  border: 4px solid darkslategray;
+}
+
+.item {
+  font-size: 30px;
+  border: 2px solid rgb(135, 143, 82);
+  align-self: stretch;
+  justify-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkkhaki;
+}
