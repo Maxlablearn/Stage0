@@ -13,6 +13,19 @@ const scoreItem = document.querySelector('.score');
 const fieldItem = document.querySelector('.game-field');
 
 
+function playBuh() {
+  const buhAudio = new Audio;
+  buhAudio.src = './assets/audio/Sound-buh.mp3';
+  buhAudio.play();
+}
+function playTuk() {
+  const tukAudio = new Audio;
+  tukAudio.src = './assets/audio/Sound-tuk.mp3';
+  tukAudio.play();
+}
+
+
+
 function insertRandom(arr) {
   let random = Math.floor(Math.random()*(arr.length));
   field[arr[random]] = 2;
@@ -103,6 +116,7 @@ function render() {
 }
 
 function throwBoard(dir) {
+  playTuk();
   fieldItem.style.animation = `throw-${dir} 400ms linear 50ms 1`;
 }
 
@@ -123,7 +137,10 @@ function actionKey(event) {
       }
       render();
       
-    }, 400)
+    }, 400);
+    if (isThrow) {
+      playBuh();
+    }
   }
 }
 
