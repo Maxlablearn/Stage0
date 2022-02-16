@@ -13,14 +13,26 @@
   <div class="container">
     <div class="header">
       <header>
-        header
+
+        <h1>2048</h1>
+        <div class="audio"></div>
       </header>
     </div>
-    <div class="main">
-      <h1>2048</h1>
+    <main class="main">
+      
       <div class="game-container">
-        <h2 class="score"></h2>
-        <div class="game-field">
+        <div class="score-section">
+          <div class="current-score">
+            <div class="score-text">Your score: </div>
+            <div class="score"></div>
+          </div>
+          <div class="max-score">
+            <div class="score-text"> Max score: </div>
+            <div class="max-score"></div> 
+          </div>
+          
+        </div>
+          <div class="game-field">
           <div data-item>1</div>
           <div data-item>2</div>
           <div data-item>3</div>
@@ -38,13 +50,16 @@
           <div data-item>15</div>
           <div data-item>16</div>
         </div>
+        <div class="description">HOW TO PLAY: Use your arrow keys ( ← ↑ → ↓ ) to move the tiles. When two tiles with the same number touch, they merge into one!</div>
       </div>
-    </div>
-    <div class="footer">
-      <footer>
-        maxlablearn 2022 RS school
-      </footer>
-    </div>
+    </main>
+    <footer class="footer">
+
+        <div class="git">maxlablearn</div>
+        <div class="year">2022</div>
+        <div class="rs">RS school</div>
+
+    </footer>
   </div>
 </body>
 <script src="./index.js"></script>
