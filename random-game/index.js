@@ -1,6 +1,7 @@
 
 let field = Array(16).fill('');
 let oldField = [];
+let stackField = [];
 const colors = {2: 'lightgreen', 4: 'green', 8: 'orange', 16: 'red',
               32: 'sandybrown', 64: 'braun', 128: 'violet', 256: 'purple',
               512: 'goldenrod', 1024: 'yellow', 2048: 'gold', 4096: 'deeppink'};
@@ -132,9 +133,7 @@ function actionKey(event) {
       
       if (getFreeItems().length > 0) {
         insertRandom(getFreeItems());
-      } else {
-        alert('game over');
-      }
+      } 
       render();
       
     }, 400);
@@ -142,6 +141,19 @@ function actionKey(event) {
       playBuh();
     }
   }
+  if (getFreeItems().length === 0) {
+    isThrow = false;
+    stackField = [...field];
+    throwAll('ArrowUp');
+    throwAll('ArrowDown');
+    throwAll('ArrowLeft');
+    throwAll('ArrowRight');
+    compareArrays(field, stackField) ? gameOver() : field = [...stackField];
+  }
+}
+
+function gameOver() {
+  alert('game over');
 }
 
 insertRandom(getFreeItems());
