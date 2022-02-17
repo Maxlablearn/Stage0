@@ -68,13 +68,36 @@ body {
   align-items: center;
 }
 
-.header {
+.header-container {
   width: 100%;
   max-height: 60px;
   min-height: 40px;
   background-color: black;
   color: azure;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+.header-center {
+  transition-delay: 10s;
+  transition: 2s;
+}
+
+.header-right {
+  
+}
+.audio {
+  height: 40px;
+  width: 40px;
+  background-image: url('./assets/icons/audio-speaker-on.svg');
+  filter: invert(1);
+  transition: 1s;
+}
+.audio.mute {
+  background-image: url('./assets/icons/audio-speaker-off.svg');
+  transition: 1s;
+}
+
 .main {
   height: 100%;
 }

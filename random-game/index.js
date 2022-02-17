@@ -2,6 +2,7 @@
 let field = Array(16).fill('');
 let oldField = [];
 let stackField = [];
+let isAudio = true;
 const colors = {2: 'lightgreen', 4: 'green', 8: 'orange', 16: 'red',
               32: 'sandybrown', 64: 'braun', 128: 'violet', 256: 'purple',
               512: 'goldenrod', 1024: 'yellow', 2048: 'gold', 4096: 'deeppink'};
@@ -12,20 +13,24 @@ const body = document.getElementsByTagName('body');
 const items = document.querySelectorAll('[data-item]');
 const scoreItem = document.querySelector('.score');
 const fieldItem = document.querySelector('.game-field');
+const audioBtn = document.querySelector('.audio');
 
 
 function playBuh() {
   const buhAudio = new Audio;
   buhAudio.src = './assets/audio/Sound-buh.mp3';
-  buhAudio.play();
+  if (isAudio) {buhAudio.play()};
 }
 function playTuk() {
   const tukAudio = new Audio;
   tukAudio.src = './assets/audio/Sound-tuk.mp3';
-  tukAudio.play();
+  if (isAudio) {tukAudio.play()};
 }
 
-
+function audioMute() {
+  audioBtn.classList.toggle('mute');
+  isAudio = !isAudio;
+}
 
 function insertRandom(arr) {
   let random = Math.floor(Math.random()*(arr.length));
@@ -160,4 +165,5 @@ insertRandom(getFreeItems());
 render();
 
 document.body.addEventListener('keyup', actionKey);
+audioBtn.addEventListener('click', audioMute);
 //console.log(getFreeItems());
