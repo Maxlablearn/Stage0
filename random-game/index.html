@@ -13,10 +13,10 @@
   <div class="container">
     <header class="header-container">
       <div class="header-left">
-        
+        <h1>2048</h1>
       </div>
       <div class="header-center">
-        <h1>2048</h1>
+        <div class="score-menu">score</div>
       </div>
       <div class="header-right">
         <div class="audio"></div>
@@ -32,11 +32,11 @@
           </div>
           <div class="max-score">
             <div class="score-text"> Max score: </div>
-            <div class="max-score"></div> 
+            <div class="best-score"></div> 
           </div>
           
         </div>
-          <div class="game-field">
+        <div class="game-field">
           <div data-item>1</div>
           <div data-item>2</div>
           <div data-item>3</div>
@@ -54,14 +54,22 @@
           <div data-item>15</div>
           <div data-item>16</div>
         </div>
+        <div class="game-over none">
+          <h2>Game Over</h2>
+          <div class="score-end">Your score is XXXXX</div>
+          <div class="input-name-container">
+            <input class="input-name" type="text" name="Name" id="enter-name" placeholder="Your name...">
+            <div class="input-name-btn"></div>
+          </div>
+        </div>
         <div class="description">HOW TO PLAY: Use your arrow keys ( ← ↑ → ↓ ) to move the tiles. When two tiles with the same number touch, they merge into one!</div>
       </div>
     </main>
     <footer class="footer">
-
-        <div class="git">maxlablearn</div>
+      
+        <div class="git"><a class="link" href="https://github.com/Maxlablearn"></a></div>
         <div class="year">2022</div>
-        <div class="rs">RS school</div>
+        <div class="rs"></div>
 
     </footer>
   </div>

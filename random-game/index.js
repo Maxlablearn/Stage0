@@ -3,19 +3,20 @@ let field = Array(16).fill('');
 let oldField = [];
 let stackField = [];
 let isAudio = true;
-const colors = {2: 'lightgreen', 4: 'green', 8: 'orange', 16: 'red',
-              32: 'sandybrown', 64: 'braun', 128: 'violet', 256: 'purple',
-              512: 'goldenrod', 1024: 'yellow', 2048: 'gold', 4096: 'deeppink'};
+let isEndGame = false;
 let isThrow = false;
+let score = localStorage.score == undefined ? [['NLO', 25]] : JSON.parse(localStorage.score) ;
 
 
 const body = document.getElementsByTagName('body');
 const items = document.querySelectorAll('[data-item]');
 const scoreItem = document.querySelector('.score');
 const fieldItem = document.querySelector('.game-field');
+const bestScore = document.querySelector('.best-score');
+
+
+//    ----- audio
 const audioBtn = document.querySelector('.audio');
-
-
 function playBuh() {
   const buhAudio = new Audio;
   buhAudio.src = './assets/audio/Sound-buh.mp3';
@@ -31,6 +32,8 @@ function audioMute() {
   audioBtn.classList.toggle('mute');
   isAudio = !isAudio;
 }
+audioBtn.addEventListener('click', audioMute);
+//    audio -----
 
 function insertRandom(arr) {
   let random = Math.floor(Math.random()*(arr.length));
@@ -67,6 +70,9 @@ function compareArrays(arr1, arr2) {
 
 function getScore() {
   return field.reduce((sum, el) => (el > 0 ? sum + el : sum), 0);
+}
+function getBestScore() {
+  return score.sort((a,b) => b[1] - a[1])[0][1];
 }
 
 function throwOne(arr) {
@@ -122,48 +128,77 @@ function render() {
 }
 
 function throwBoard(dir) {
-  playTuk();
-  fieldItem.style.animation = `throw-${dir} 400ms linear 50ms 1`;
+  if (!isEndGame) {
+    playTuk();
+    fieldItem.style.animation = `throw-${dir} 400ms linear 50ms 1`;
+  }
 }
 
 function actionKey(event) {
-  isThrow = false;
-  oldField = [...field];
-  throwAll(event.key);
-  throwBoard(event.key);
-  render();
-  setTimeout( () => { fieldItem.style.animation = 'none';}, 400);
-  if (!compareArrays(oldField, field)) {
-    setTimeout( () => {
-      
-      if (getFreeItems().length > 0) {
-        insertRandom(getFreeItems());
-      } 
-      render();
-      
-    }, 400);
-    if (isThrow) {
-      playBuh();
+  if (event.key.startsWith('Arrow')) {
+    isThrow = false;
+    oldField = [...field];
+    throwAll(event.key);
+    throwBoard(event.key);
+    render();
+    setTimeout( () => { fieldItem.style.animation = 'none';}, 400);
+    if (!compareArrays(oldField, field)) {
+      setTimeout( () => {
+        
+        if (getFreeItems().length > 0) {
+          insertRandom(getFreeItems());
+        } 
+        render();
+        
+      }, 400);
+      if (isThrow) {
+        playBuh();
+      }
+    }
+    if (getFreeItems().length === 0) {
+      isThrow = false;
+      stackField = [...field];
+      throwAll('ArrowUp');
+      throwAll('ArrowDown');
+      throwAll('ArrowLeft');
+      throwAll('ArrowRight');
+      compareArrays(field, stackField) ? gameOver() : field = [...stackField];
     }
   }
-  if (getFreeItems().length === 0) {
-    isThrow = false;
-    stackField = [...field];
-    throwAll('ArrowUp');
-    throwAll('ArrowDown');
-    throwAll('ArrowLeft');
-    throwAll('ArrowRight');
-    compareArrays(field, stackField) ? gameOver() : field = [...stackField];
-  }
+  
 }
+
+
+const endGame = document.querySelector('.game-over');
+const inputName = document.querySelector('.input-name');
+const inputNameBtn = document.querySelector('.input-name-btn');
+const scoreEnd = document.querySelector('.score-end');
 
 function gameOver() {
-  alert('game over');
+
+  isEndGame = true;
+  endGame.classList.remove('none');
+  fieldItem.classList.add('end');
+  scoreEnd.innerHTML = `Your score is ${getScore()}`;
+
+}
+function saveName() {
+  score.push([inputName.value, getScore()]);
+  getBestScore();
+  localStorage.score = JSON.stringify(score);
 }
 
-insertRandom(getFreeItems());
-render();
+inputNameBtn.addEventListener('click', saveName);
+
+function startGame() {
+  insertRandom(getFreeItems());
+  render();
+  bestScore.innerHTML = getBestScore();
+}
+
 
 document.body.addEventListener('keyup', actionKey);
-audioBtn.addEventListener('click', audioMute);
+
+
+startGame();
 //console.log(getFreeItems());
