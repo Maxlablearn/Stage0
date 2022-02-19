@@ -175,30 +175,59 @@ const inputNameBtn = document.querySelector('.input-name-btn');
 const scoreEnd = document.querySelector('.score-end');
 
 function gameOver() {
-
   isEndGame = true;
   endGame.classList.remove('none');
   fieldItem.classList.add('end');
-  scoreEnd.innerHTML = `Your score is ${getScore()}`;
-
+  if (getScore() > getBestScore()) {
+    scoreEnd.innerHTML = `Your are the best with ${getScore()}`;
+  } else {
+    scoreEnd.innerHTML = `Your score is ${getScore()}`;
+  }
 }
+
 function saveName() {
   score.push([inputName.value, getScore()]);
   getBestScore();
+  if (score.length > 10) {
+    score.length = 10;
+  }
   localStorage.score = JSON.stringify(score);
+  endGame.classList.add('none');
+  fieldItem.classList.remove('end');
+  showScore()
 }
 
 inputNameBtn.addEventListener('click', saveName);
 
+
+const scoreBtn = document.querySelector('.score-menu');
+const scoreMenu = document.querySelector('.score-container');
+const scoreItems = document.querySelectorAll('.score-item');
+
+function showScore() {
+  scoreItems.forEach((el, pos) => {
+    el.innerHTML = `${score[pos][0]}  -  ${score[pos][1]}`;
+  })
+  scoreMenu.classList.toggle('show');
+  scoreBtn.classList.toggle('open');
+}
+scoreBtn.addEventListener('click', showScore);
+
 function startGame() {
+  field = Array(16).fill('');
   insertRandom(getFreeItems());
   render();
   bestScore.innerHTML = getBestScore();
+  scoreMenu.classList.remove('show');
+  scoreBtn.classList.remove('open');
 }
 
 
 document.body.addEventListener('keyup', actionKey);
 
+const startNewGameBtn = document.querySelector('.start-new-game');
+startNewGameBtn.addEventListener('click', startGame);
 
 startGame();
+
 //console.log(getFreeItems());

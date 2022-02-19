@@ -79,6 +79,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
 .header-left {
@@ -105,8 +107,22 @@ body {
   
 }
 
-.score-btn {
+.score-menu {
   color: #dddcd8;
+  cursor: pointer;
+  transition-duration: 300ms;
+  position: relative;
+  top: 0px;
+}
+.score-menu:hover {
+  color: white;
+  transform: scale(1.2);
+  transition-duration: 300ms;
+}
+.score-menu.open {
+  top: 60px;
+  transform: scale(3);
+  transition-duration: 500ms;
 }
 
 h1 {
@@ -131,6 +147,61 @@ h1 {
 .main {
   height: 100%;
 }
+
+.score-container {
+  width: 50vw;
+  height: 80vh;
+  position: absolute;
+  top: -80vh;
+  left: 25vw;
+  background-color: #8f8f8fe8;
+  border-left: 4px solid darkslategray;
+  border-right: 4px solid darkslategray;
+  border-bottom: 4px solid darkslategray;
+  border-end-start-radius: 20px;
+  border-end-end-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 30px 30px 30px;
+  transition: 1s;
+  font-weight: 700;
+}
+.score-container.show {
+  top: 60px;
+  transition: 1s;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-around;
+  align-items:flex-end;
+  font-size: 2rem;
+  letter-spacing: 8px;
+}
+
+.start-new-game {
+  height: 50px;
+  width: 300px;
+  border: 4px solid darkslategray; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 400ms;
+
+}
+.start-new-game:hover {
+  background-color:  #bdbdbde8;
+  transition: 400ms;
+}
+
+
 
 .score-section {
   width: 30rem;
@@ -178,7 +249,7 @@ h1 {
   transition: 300ms;
 }
 .game-field.end {
-  filter: blur(3px);
+  filter: blur(5px);
   
 }
 
@@ -218,7 +289,7 @@ h1 {
 
 .game-over {
   position: absolute;
-  height: calc(min(30vh, 30vw));
+  height: calc(min(40vh, 40vw));
   aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
@@ -271,6 +342,7 @@ h2 {
 }
 .input-name-btn:hover {
   filter: none;
+  transform: scale(1.2);
 }
 .input-name-btn:active {
   transform: scale(1.2);
