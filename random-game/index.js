@@ -6,7 +6,8 @@ let isAudio = true;
 let isEndGame = false;
 let isThrow = false;
 let score = localStorage.score == undefined ? [['NLO', 25]] : JSON.parse(localStorage.score) ;
-
+const colors = ['lightgreen', 'orange', 'green', 'red', 'purple', 'sandybrown', 'braun',
+               'violet', 'deeppink', 'orange'];
 
 const body = document.getElementsByTagName('body');
 const items = document.querySelectorAll('[data-item]');
@@ -207,13 +208,15 @@ const scoreList = document.querySelector('.score-list');
 
 function showScore() {
   scoreList.innerHTML = '';
-  score.forEach(el => {
+  score.forEach((el, pos) => {
     const scoreItemName = document.createElement('div');
     scoreItemName.classList.add('score-item-name');
+    scoreItemName.style.color = colors[pos];
     scoreItemName.innerHTML = el[0];
     scoreList.append(scoreItemName);
     const scoreItemPoints = document.createElement('div');
     scoreItemPoints.classList.add('score-item');
+    scoreItemPoints.style.color = colors[pos];
     scoreItemPoints.innerHTML = el[1];
     scoreList.append(scoreItemPoints);
   })
