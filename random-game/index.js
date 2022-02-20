@@ -202,11 +202,20 @@ inputNameBtn.addEventListener('click', saveName);
 
 const scoreBtn = document.querySelector('.score-menu');
 const scoreMenu = document.querySelector('.score-container');
-const scoreItems = document.querySelectorAll('.score-item');
+
+const scoreList = document.querySelector('.score-list');
 
 function showScore() {
-  scoreItems.forEach((el, pos) => {
-    el.innerHTML = `${score[pos][0]}  -  ${score[pos][1]}`;
+  scoreList.innerHTML = '';
+  score.forEach(el => {
+    const scoreItemName = document.createElement('div');
+    scoreItemName.classList.add('score-item-name');
+    scoreItemName.innerHTML = el[0];
+    scoreList.append(scoreItemName);
+    const scoreItemPoints = document.createElement('div');
+    scoreItemPoints.classList.add('score-item');
+    scoreItemPoints.innerHTML = el[1];
+    scoreList.append(scoreItemPoints);
   })
   scoreMenu.classList.toggle('show');
   scoreBtn.classList.toggle('open');

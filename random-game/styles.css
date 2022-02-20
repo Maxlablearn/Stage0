@@ -58,7 +58,6 @@ input, button, textarea, select {
 body {
   font-family: Roboto Condensed;
   background-color: #dddcd8;
-
 }
 
 .container {
@@ -104,7 +103,12 @@ body {
   min-width: 100px;
   display: flex;
   justify-content: right;
-  
+}
+
+.link {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
 }
 
 .score-menu {
@@ -129,6 +133,11 @@ h1 {
   text-shadow: 8px 9px 11px white;
   letter-spacing: 10px;
   font-size: 3rem;
+  transition-duration: 500ms;
+}
+h1:hover {
+  transform: scale(1.2);
+  transition-duration: 500ms;
 }
 
 
@@ -138,10 +147,15 @@ h1 {
   background-image: url('./assets/icons/audio-speaker-on.svg');
   filter: invert(1);
   transition: 1s;
+  cursor: pointer;
 }
 .audio.mute {
   background-image: url('./assets/icons/audio-speaker-off.svg');
   transition: 1s;
+}
+.audio:hover {
+  transform: scale(1.25);
+  transition: 500ms;
 }
 
 .main {
@@ -174,13 +188,21 @@ h1 {
 }
 
 .score-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
   height: 80%;
-  justify-content: space-around;
-  align-items:flex-end;
+  
+  
   font-size: 2rem;
   letter-spacing: 8px;
+}
+
+.score-item-name {
+
+}
+
+.score-item {
+
 }
 
 .start-new-game {
@@ -204,19 +226,21 @@ h1 {
 
 
 .score-section {
-  width: 30rem;
+  width: calc(min(60vw, 600px));
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 3vh;
 }
 
 .score {
   font-weight: bold;
+  text-align: center;
 }
 
 .best-score {
-  text-align: right;
+  text-align: center;
+  font-weight: 700;
 }
 .game-container {
   margin: 0 auto;
@@ -351,7 +375,7 @@ h2 {
 .description {
   width: 80%;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2vh;
   font-weight: bold;
 }
 
@@ -377,6 +401,11 @@ footer {
   box-shadow: 0px 0px 5px 5px white;
   border-radius: 50%;
   background-color: white;
+  transition-duration: 500ms;
+}
+.git:hover {
+  transform: scale(1.2);
+  transition-duration: 500ms;
 }
 
 .rs {
@@ -385,6 +414,12 @@ footer {
   background: url('./assets/icons/logo-rs.svg') no-repeat;
   background-size: contain;
   margin-bottom: 60px;
+  margin-left: -20px;
+  transition-duration: 500ms;
+}
+.rs:hover {
+  transform: scale(1.2);
+  transition-duration: 500ms;  
 }
 
 
