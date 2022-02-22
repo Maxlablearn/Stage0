@@ -198,11 +198,11 @@ h1:hover {
 }
 
 .score-item-name {
-
+  overflow: hidden;
 }
 
 .score-item {
-
+  font-weight: 700;
 }
 
 .start-new-game {
