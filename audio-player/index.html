@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Audio player</title>
+  <link rel="shortcut icon" href="./assets/icons/Bokehlicia-Pacifica-Multimedia-audio-player.ico" type="image/x-icon">
+</head>
+<body>
+  <img src="" class="bg-cover" alt="background">
+  <audio preload="metadata" src="" class="audio" id="audioId"></audio>
+  <div class="container">
+    <div class="header">
+      <img class="album-image" src="" alt="Album image">
+      <h1 class="artist">Artist</h1>
+      <h2 class="song-title">Song</h2>
+    </div>
+    <div class="controls">
+      <div class="buttons">
+        <div class="prev-btn">
+          <div class="prev-btn-center">
+            <div class="bar bar6"></div>	
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+          </div>
+        </div>
+        <div class="play-btn">
+          <div class="play-btn-center">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+          </div>
+        </div>
+        <div class="next-btn">
+          <div class="next-btn-center">
+            <div class="bar bar9"></div>	
+            <div class="bar bar10"></div>
+            <div class="bar bar11"></div>
+          </div>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="current-time" id="curr-time">0:00</div>
+        <input type="range" class="progressBar" id="progress" min="0">
+        <div class="song-time">0:00</div>
+      </div>
+    </div>
+    <div class="footer">
+      <a class="github" href="https://github.com/Maxlablearn"></a>
+      <div class="year">2 0 2 2</div>
+      <a class="shool" href=" https://rs.school/js-stage0/"></a>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
